@@ -27,10 +27,14 @@
     function VirarCard(){
         if(!PrimeiroCard){
             PrimeiroCard = this
+            PrimeiroCard.ClassList.add("flip")
 
             return false
         }
         SegundoCard = this
+        SegundoCard.classList.add("flip")
+
+        Verificar(PrimeiroCard,SegundoCard)
         
 
 
