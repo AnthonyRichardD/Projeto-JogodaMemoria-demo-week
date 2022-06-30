@@ -3,8 +3,7 @@
 </svelte:head>
 <script>
 
-    let PrimeiroCard = false
-    let SegundoCard = false
+
 
     let images = [
         {Class: 'card-frente', Src:'./images/alce-frente.png', Id:'alce'},
@@ -21,39 +20,32 @@
         {Class: 'card-frente', Src:'./images/raposa-frente.png', Id:'raposa'}
         
         
-    ];
-    let MostrarFundo = false
-    function MudarFundo(card){
-        MostrarFundo = !MostrarFundo
+    ] 
+    
+    let PrimeiroCard,SegundoCard
+
+    function VirarCard(){
         if(!PrimeiroCard){
             PrimeiroCard = this
-            console.log("primeiro")
-            console.log(PrimeiroCard.dataset.identificacao)
-        }
-        else{
-            SegundoCard = this
-            console.log("segundo")
-            console.log(SegundoCard.dataset.identificacao)
 
-            Verificar()
+            return false
         }
+        SegundoCard = this
+        
 
 
         
     }
-    function Verificar(){
+    function Verificar(card1,card2){
         if (PrimeiroCard.dataset.identificacao === SegundoCard.dataset.identificacao) {
-            console.log("iguais")
-            console.log("----------------------------------")
-            PrimeiroCard = false
-            SegundoCard = false
-
+            console.log("MATCH!")
             
         }else{
+            setTimeout(() => {
+                card1.classList.remove("flip")
+                card2.classList.remove("flip")
+            },2000);
             console.log("não são iguais")
-            console.log("----------------------------------")
-            PrimeiroCard = false
-            SegundoCard = false
         }
     }
  
@@ -78,7 +70,7 @@ misturarCards(images)
   {#each images as {Src,Id} }
         
     <div class="flip-card">
-        <div on:click={MudarFundo} class="flip-card-inner" class:flip={MostrarFundo} data-identificacao={Id}>
+        <div on:click={VirarCard} class="flip-card-inner" data-identificacao={Id}>
             <div class="flip-card-front">
                 <img src="./images/carta-costa.png" alt="card-costa">
             </div>
