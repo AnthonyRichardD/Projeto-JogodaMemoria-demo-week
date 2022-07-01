@@ -28,23 +28,25 @@
         if(!PrimeiroCard){
             PrimeiroCard = this
             PrimeiroCard.classList.add('flip')
+            SegundoCard = true
             console.log(PrimeiroCard.dataset.identificacao,'primeiro')
-
-        }
-        else{
-            SegundoCard = this
-            SegundoCard.classList.add('flip')
-            console.log(SegundoCard.dataset.identificacao,'segundo')
-            VerificarCards()
+            
             
         }
+        else if(SegundoCard == true){
+            SegundoCard = this
+            console.log(SegundoCard.dataset.identificacao,'segundo')
+            SegundoCard.classList.add('flip')
+            VerificarCards()
+
+        }
+
 
        
 
         
     }
     function VerificarCards(){
-        
         iguais = PrimeiroCard.dataset.identificacao === SegundoCard.dataset.identificacao
         if(iguais == true){
             PrimeiroCard = null
@@ -68,7 +70,7 @@
             iguais = null
             console.log(iguais)
             console.log(PrimeiroCard)
-        }, 800);
+        }, 1000);
     }
 
     function VerificarFim(){
