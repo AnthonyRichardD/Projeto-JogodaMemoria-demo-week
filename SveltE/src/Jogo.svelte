@@ -3,8 +3,6 @@
 </svelte:head>
 <script>
 
-
-
     let images = [
         {Class: 'card-frente', Src:'./images/alce-frente.png', Id:'alce'},
         {Class: 'card-frente', Src:'./images/caveira-frente.png', Id:'caveira'},
@@ -21,49 +19,81 @@
         
         
     ] 
-    
-    let PrimeiroCard,SegundoCard
+    let PrimeiroCard
+    let SegundoCard
+    let iguais
+    let Pares = 0
 
-    function VirarCard(){
+    function flipcards(){
         if(!PrimeiroCard){
             PrimeiroCard = this
-            PrimeiroCard.ClassList.add("flip")
+            PrimeiroCard.classList.add('flip')
+            console.log(PrimeiroCard.dataset.identificacao,'primeiro')
 
-            return false
         }
-        SegundoCard = this
-        SegundoCard.classList.add("flip")
-
-        Verificar(PrimeiroCard,SegundoCard)
-        
-
-
-        
-    }
-    function Verificar(card1,card2){
-        if (PrimeiroCard.dataset.identificacao === SegundoCard.dataset.identificacao) {
-            console.log("MATCH!")
+        else{
+            SegundoCard = this
+            SegundoCard.classList.add('flip')
+            console.log(SegundoCard.dataset.identificacao,'segundo')
+            VerificarCards()
             
-        }else{
-            setTimeout(() => {
-                card1.classList.remove("flip")
-                card2.classList.remove("flip")
-            },2000);
-            console.log("não são iguais")
         }
+
+       
+
+        
     }
+    function VerificarCards(){
+        
+        iguais = PrimeiroCard.dataset.identificacao === SegundoCard.dataset.identificacao
+        if(iguais == true){
+            PrimeiroCard = null
+            SegundoCard = null
+            Pares ++
+            VerificarFim()
+        }
+        else{
+            Desflipar()
+        }
+ 
+  
+
+    }
+    function Desflipar(){
+        setTimeout(() => {
+            PrimeiroCard.classList.remove('flip')
+            SegundoCard.classList.remove('flip')
+            PrimeiroCard = null
+            SegundoCard = null
+            iguais = null
+            console.log(iguais)
+            console.log(PrimeiroCard)
+        }, 800);
+    }
+
+    function VerificarFim(){
+        setTimeout(() => {
+            if(Pares == 6){
+                alert("Parabens! Você Venceu")
+            }
+            
+        }, 1000);
+    }
+
  
     
     
     function misturarCards(array) {
         for (let i = array.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * 12);
-        let temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
+            let j = Math.floor(Math.random() * 12);
+            let temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
     }
-}
-misturarCards(images)
+    
+    misturarCards(images)
+
 
 </script>
 
@@ -74,7 +104,7 @@ misturarCards(images)
   {#each images as {Src,Id} }
         
     <div class="flip-card">
-        <div on:click={VirarCard} class="flip-card-inner" data-identificacao={Id}>
+        <div on:click={flipcards} class="flip-card-inner" data-identificacao={Id}>
             <div class="flip-card-front">
                 <img src="./images/carta-costa.png" alt="card-costa">
             </div>
