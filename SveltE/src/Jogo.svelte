@@ -22,11 +22,12 @@
     let PrimeiroCard
     let SegundoCard
     let iguais
-    let Pares = 0
+    let Pares = 6
 
     function flipcards(){
         if(!PrimeiroCard){
             PrimeiroCard = this
+            PrimeiroCard.classList.add ('vip')
             PrimeiroCard.classList.add('flip')
             SegundoCard = true
             console.log(PrimeiroCard.dataset.identificacao,'primeiro')
@@ -36,6 +37,7 @@
         else if(SegundoCard == true){
             SegundoCard = this
             console.log(SegundoCard.dataset.identificacao,'segundo')
+            SegundoCard.classList.add ('vip')
             SegundoCard.classList.add('flip')
             VerificarCards()
 
@@ -51,7 +53,7 @@
         if(iguais == true){
             PrimeiroCard = null
             SegundoCard = null
-            Pares ++
+            Pares --
             VerificarFim()
         }
         else{
@@ -65,9 +67,10 @@
         setTimeout(() => {
             PrimeiroCard.classList.remove('flip')
             SegundoCard.classList.remove('flip')
+            PrimeiroCard.classList.remove ('vip');
+            SegundoCard.classList.remove ('vip');
             PrimeiroCard = null
             SegundoCard = null
-            iguais = null
             console.log(iguais)
             console.log(PrimeiroCard)
         }, 1000);
@@ -75,7 +78,7 @@
 
     function VerificarFim(){
         setTimeout(() => {
-            if(Pares == 6){
+            if(Pares == 0){
                 alert("Parabens! Você Venceu")
             }
             
@@ -101,19 +104,30 @@
 
 
 
-<div class="game-display">
+<div class="conteudo-jogo">
+    <div class="infos">
+        <div class="tempo">
+            <h1>Tempo da Tentativa: 150s</h1>
 
-  {#each images as {Src,Id} }
-        
-    <div class="flip-card">
-        <div on:click={flipcards} class="flip-card-inner" data-identificacao={Id}>
-            <div class="flip-card-front">
-                <img src="./images/carta-costa.png" alt="card-costa">
-            </div>
-            <div class="flip-card-back">
-                <img src={Src} alt={Id}>
-            </div>
+        </div>
+        <div class="pares">
+            <h1>Pares Restantes: {Pares}</h1>
         </div>
     </div>
-    {/each}
+    <div class="game-display">
+    
+      {#each images as {Src,Id} }
+    
+        <div class="flip-card">
+            <div on:click={flipcards} class="flip-card-inner" data-identificacao={Id}>
+                <div class="flip-card-front">
+                    <img src="./images/carta-costa.png" alt="card-costa">
+                </div>
+                <div class="flip-card-back">
+                    <img src={Src} alt={Id}>
+                </div>
+            </div>
+        </div>
+        {/each}
+    </div>
 </div>

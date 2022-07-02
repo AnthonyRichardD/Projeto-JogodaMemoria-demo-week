@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 *{
+    font-family: 'Roboto', sans-serif;
     padding: 0;
     margin: 0;
     padding: 0;
@@ -8,15 +10,9 @@ body{
     overflow-y: hidden;
     width: 100vw;
     height: 100vh;
-    background-image: linear-gradient(150deg, #121212, #33302E);
+    background-color:#33302E;
 }
-header{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 80px;
-}
+
 .botoes{
     cursor: pointer;
     display: flex;
@@ -37,7 +33,6 @@ section{
     display: flex;
     align-items: center;
     justify-content: center;
-    border-top: 2px solid #33302E;
     width: 100vw;
-    height: calc(100vh - 80px);
+    height: 100vh;
 }

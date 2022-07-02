@@ -1,1 +1,3 @@
-<h1>MENU</h1>
+<svelte:head>
+    
+</svelte:head>

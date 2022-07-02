@@ -7,29 +7,22 @@
 	import Jogo from "./Jogo.svelte";
 	import  Sobre  from "./Sobre.svelte";
 	import {estado} from "./Navigate";
-	import {trocarEstadoDoJogo} from "./Navigate"
+	import PaginaInicial from "./PaginaInicial.svelte";
 
 </script>
-<header>
-	<div class="botoes">
-		<div class="botao" on:click={()=>trocarEstadoDoJogo('menu')}>Menu</div>
-		<div class="botao" on:click={()=>trocarEstadoDoJogo('jogar')}>jogar</div>
-		<div class="botao" on:click={()=>trocarEstadoDoJogo('sobre')}>sobre</div>
-	</div>
-</header>
+
 <section>
-	{#if $estado == "menu"}
+	{#if $estado == "inicial"}
+		<PaginaInicial />
+		{:else if $estado == "menu"}
 		<Menu />
-		
-	{/if}
-	{#if $estado == "jogar"}
+		{:else if $estado == "jogar"}
 		<Jogo />
-		
-	{/if}
-	{#if $estado == "sobre"}
+		{:else if $estado == 'sobre'}
 		<Sobre />
-		
 	{/if}
+
+	
 	
 </section>
 
