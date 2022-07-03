@@ -3,6 +3,7 @@
     cursor:default;
 }
 .conteudo-jogo{
+    user-select: none;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -22,15 +23,11 @@
 }
 
 .game-display{
-    background-color:rgb(43, 43, 43);
     display: grid;
     grid-template-columns: repeat(4,auto);
     width: 499px;
     padding: 2px;
     height: 560px;
-    border: 2px solid black;
-
-
 }
 .flip-card {
     display: flex;
@@ -52,6 +49,9 @@
     transition: transform 0.6s;
     transform-style: preserve-3d;
 }
+.flip-card-inner:active{
+    transform: scale(0.9);
+}
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
 .flip {
@@ -69,10 +69,7 @@
 }
 
 /* Style the front side (fallback if image is missing) */
-.flip-card-front {
-    background-color: #bbb;
-    color: black;
-}
+
 
 /* Style the back side */
 .flip-card-back {
