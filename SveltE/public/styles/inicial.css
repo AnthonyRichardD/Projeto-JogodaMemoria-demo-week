@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 h1{
-    border-bottom: 2px solid black;
     color: black;
     font-weight: bold;
     font-size: 50pt;
@@ -34,13 +33,12 @@ h1{
     padding: 20px 20px;
     width: 500px;
     height: 250px;
-    border: 2px solid black;
 }
 
 .botao{
     font-weight: 900;
     border-radius: 30px;
-    box-shadow: 0px 10px 15px  black;    
+    box-shadow: 5px 12px 15px black;    
     color: black;
     display: flex;
     align-items: center;
@@ -50,8 +48,7 @@ h1{
     height: 33%;
 }
 .botao:hover{
-    color: rgba(37, 115, 218, 0.822);
+    color: #ffa300;
     transform: scale(1.05);
-    border-bottom: 2px solid black;
     transition: all 0.5 ease;
 }

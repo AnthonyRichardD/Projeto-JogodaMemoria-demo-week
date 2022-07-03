@@ -2,7 +2,8 @@
     <link rel="stylesheet" href="/styles/jogo.css">
 </svelte:head>
 <script>
-
+    import MenuBotao from './Botoes/MenuBotao.svelte';
+    import PaginaInicialBotao from './Botoes/PaginaInicialBotao.svelte'
     let images = [
         {Class: 'card-frente', Src:'./images/alce-frente.png', Id:'alce'},
         {Class: 'card-frente', Src:'./images/caveira-frente.png', Id:'caveira'},
@@ -30,15 +31,15 @@
             PrimeiroCard.classList.add ('vip')
             PrimeiroCard.classList.add('flip')
             SegundoCard = true
-            console.log(PrimeiroCard.dataset.identificacao,'primeiro')
+            document.getElementById('SomFlip1').play()
             
             
         }
         else if(SegundoCard == true){
             SegundoCard = this
-            console.log(SegundoCard.dataset.identificacao,'segundo')
             SegundoCard.classList.add ('vip')
             SegundoCard.classList.add('flip')
+            document.getElementById('SomFlip2').play()
             VerificarCards()
 
         }
@@ -51,7 +52,7 @@
     function VerificarCards(){
         iguais = PrimeiroCard.dataset.identificacao === SegundoCard.dataset.identificacao
         if(iguais == true){
-            PrimeiroCard = null
+             PrimeiroCard = null
             SegundoCard = null
             Pares --
             VerificarFim()
@@ -69,17 +70,18 @@
             SegundoCard.classList.remove('flip')
             PrimeiroCard.classList.remove ('vip');
             SegundoCard.classList.remove ('vip');
+            document.getElementById('SomFlip3').play()
             PrimeiroCard = null
             SegundoCard = null
-            console.log(iguais)
-            console.log(PrimeiroCard)
         }, 1000);
     }
 
     function VerificarFim(){
         setTimeout(() => {
             if(Pares == 0){
-                alert("Parabens! Você Venceu")
+                document.querySelector('.TelaVitoria').style.display='flex'
+                document.querySelector('.paresinfo').style.color='rgb(204, 205, 206)'
+
             }
             
         }, 1000);
@@ -101,18 +103,15 @@
 
 
 </script>
-
+<audio id="SomFlip1" src="/audio/Flip.mp3" preload="auto"></audio>
+<audio id="SomFlip2" src="/audio/Flip2.mp3" preload="auto"></audio>
+<audio id="SomFlip3" src="/audio/desflipar.mp3" preload="auto"></audio>
 
 
 <div class="conteudo-jogo">
-    <div class="infos">
-        <div class="tempo">
-            <h1>Tempo da Tentativa: 150s</h1>
-
-        </div>
-        <div class="pares">
-            <h1>Pares Restantes: {Pares}</h1>
-        </div>
+    <div class="pares">
+        <MenuBotao />
+        <h1 class="paresinfo">Pares Restantes: {Pares}</h1>
     </div>
     <div class="game-display">
     
@@ -129,5 +128,12 @@
             </div>
         </div>
         {/each}
+    </div>
+    <div class="TelaVitoria">
+        <h1>Parabéns! Você Venceu</h1>
+        <div class="escolhas">
+            <PaginaInicialBotao />
+            <div class='botao'>Aumentar Dificuldade</div>
+        </div>
     </div>
 </div>
