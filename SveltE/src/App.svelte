@@ -4,6 +4,7 @@
 
 <script>
 	import Jogo from "./Jogo.svelte";
+	import Jogo2 from "./Jogo2.svelte";
 	import  Sobre  from "./Sobre.svelte";
 	import {estado} from "./Navigate";
 	import PaginaInicial from "./PaginaInicial.svelte";
@@ -20,6 +21,8 @@
 		<Jogo />
 		{:else if $estado == 'sobre'}
 		<Sobre />
+		{:else if $estado == 'jogo2'}
+		<Jogo2 />
 	{/if}
 
 	

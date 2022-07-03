@@ -1,10 +1,9 @@
 <svelte:head>
-    <link rel="stylesheet" href="/styles/jogo.css">
+    <link rel="stylesheet" href="/styles/jogo2.css">
 </svelte:head>
 <script>
     import MenuBotao from './Botoes/MenuBotao.svelte';
     import PaginaInicialBotao from './Botoes/PaginaInicialBotao.svelte'
-    import Jogar2Botao from './Botoes/Jogar2Botao.svelte'
     let images = [
         {Class: 'card-frente', Src:'./images/alce-frente.png', Id:'alce'},
         {Class: 'card-frente', Src:'./images/caveira-frente.png', Id:'caveira'},
@@ -17,14 +16,19 @@
         {Class: 'card-frente', Src:'./images/coruja-frente.png', Id:'coruja'},
         {Class: 'card-frente', Src:'./images/triangulo-frente.png', Id:'triangulo'},
         {Class: 'card-frente', Src:'./images/leao-frente.png', Id:'leao'},
-        {Class: 'card-frente', Src:'./images/raposa-frente.png', Id:'raposa'}
-        
+        {Class: 'card-frente', Src:'./images/raposa-frente.png', Id:'raposa'},
+        {Class: 'card-frente', Src:'./images/geo-frente.png', Id:'geo'},
+        {Class: 'card-frente', Src:'./images/estrela-frente.png', Id:'estrela'},
+        {Class: 'card-frente', Src:'./images/geo-frente.png', Id:'geo'},
+        {Class: 'card-frente', Src:'./images/unicornio-frente.png', Id:'unicornio'},
+        {Class: 'card-frente', Src:'./images/estrela-frente.png', Id:'estrela'},
+        {Class: 'card-frente', Src:'./images/unicornio-frente.png', Id:'unicornio'}
         
     ] 
     let PrimeiroCard
     let SegundoCard
     let iguais
-    let Pares = 6
+    let Pares = 9
 
     function flipcards(){
         if(!PrimeiroCard){
@@ -94,7 +98,7 @@
     
     function misturarCards(array) {
         for (let i = array.length - 1; i > 0; i--) {
-            let j = Math.floor(Math.random() * 12);
+            let j = Math.floor(Math.random() * 18);
             let temp = array[i];
             array[i] = array[j];
             array[j] = temp;
@@ -134,9 +138,10 @@
     </div>
     <div class="TelaVitoria">
         <h1>Parabéns! Você Venceu</h1>
+        <p style="font-size: 25pt;">Parece que você venceu todas as fases.</p>
+        <p style="font-size: 25pt;">Retorne para a página inicial.</p>
         <div class="escolhas">
             <PaginaInicialBotao />
-            <Jogar2Botao />
         </div>
     </div>
 </div>
