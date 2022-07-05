@@ -1,4 +1,4 @@
-.vip {
+.travar {
     pointer-events: none;
     cursor:default;
 }
@@ -38,18 +38,17 @@
 .game-display{
     display: grid;
     grid-template-columns: repeat(4,auto);
-    width: 499px;
-    padding: 2px;
-    height: 560px;
+    border: 2px solid red;
 }
 .flip-card {
+    margin: 0.5px;
     display: flex;
-    width: 120px;
-    height: 180px;
+    width: 130px;
+    height: 195px;
     background-color: transparent;
 }
 .flip-card img{
-    width: 120px;
+    width: 130px;
 }
 
 .flip-card-inner {

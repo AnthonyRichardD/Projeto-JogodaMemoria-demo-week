@@ -33,7 +33,7 @@
     function flipcards(){
         if(!PrimeiroCard){
             PrimeiroCard = this
-            PrimeiroCard.classList.add ('vip')
+            PrimeiroCard.classList.add ('travar')
             PrimeiroCard.classList.add('flip')
             SegundoCard = true
             document.getElementById('SomFlip1').play()
@@ -42,7 +42,7 @@
         }
         else if(SegundoCard == true){
             SegundoCard = this
-            SegundoCard.classList.add ('vip')
+            SegundoCard.classList.add ('travar')
             SegundoCard.classList.add('flip')
             document.getElementById('SomFlip2').play()
             VerificarCards()
@@ -73,8 +73,8 @@
         setTimeout(() => {
             PrimeiroCard.classList.remove('flip')
             SegundoCard.classList.remove('flip')
-            PrimeiroCard.classList.remove ('vip');
-            SegundoCard.classList.remove ('vip');
+            PrimeiroCard.classList.remove ('travar');
+            SegundoCard.classList.remove ('travar');
             document.getElementById('SomFlip3').play()
             PrimeiroCard = null
             SegundoCard = null
@@ -138,7 +138,7 @@
     </div>
     <div class="TelaVitoria">
         <h1>Parabéns! Você Venceu</h1>
-        <p style="font-size: 25pt;">Parece que você venceu todas as fases.</p>
+        <p style="font-size: 25pt;">Você completou todas as fases.</p>
         <p style="font-size: 25pt;">Retorne para a página inicial.</p>
         <div class="escolhas">
             <PaginaInicialBotao />
