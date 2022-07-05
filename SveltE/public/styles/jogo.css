@@ -22,14 +22,14 @@
     font-size: 45pt;
 }
 .VoltarMenu:hover{
-
+    
     color: #ffa300;
-
+    
 }
 .pares{
     display: flex;
     margin-bottom: 15px;
-
+    
 }
 .paresinfo{
     font-size: 35pt;
@@ -40,6 +40,8 @@
     grid-template-columns: repeat(4,auto);
     border: 2px solid red;
 }
+/* W3Schools*/
+/* https://www.w3schools.com/howto/howto_css_flip_card.asp */
 .flip-card {
     margin: 0.5px;
     display: flex;
@@ -82,6 +84,8 @@
 .flip-card-back {
     transform: rotateY(180deg);
 }
+
+/* W3Schools*/
 .TelaVitoria{
     color: #ffa300;
     display: none;
