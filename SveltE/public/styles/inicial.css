@@ -9,13 +9,10 @@ h1{
     font-size: 50pt;
 }
 .Initconteudo{
-    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 100vw;
 }
 .titulo{
     width: 100%;

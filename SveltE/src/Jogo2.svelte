@@ -22,12 +22,11 @@
         {Class: 'card-frente', Src:'./images/geo-frente.png', Id:'geo'},
         {Class: 'card-frente', Src:'./images/unicornio-frente.png', Id:'unicornio'},
         {Class: 'card-frente', Src:'./images/estrela-frente.png', Id:'estrela'},
-        {Class: 'card-frente', Src:'./images/unicornio-frente.png', Id:'unicornio'}
-        
+        {Class: 'card-frente', Src:'./images/unicornio-frente.png', Id:'unicornio'}        
     ] 
+
     let PrimeiroCard
     let SegundoCard
-    let iguais
     let Pares = 9
 
     function flipcards(){
@@ -55,9 +54,9 @@
         
     }
     function VerificarCards(){
-        iguais = PrimeiroCard.dataset.identificacao === SegundoCard.dataset.identificacao
-        if(iguais == true){
-             PrimeiroCard = null
+        
+        if(PrimeiroCard.dataset.identificacao === SegundoCard.dataset.identificacao){
+            PrimeiroCard = null
             SegundoCard = null
             Pares --
             VerificarFim()
@@ -87,14 +86,9 @@
                 document.querySelector('.TelaVitoria').style.display='flex'
                 document.querySelector('.paresinfo').style.color='rgb(204, 205, 206)'
                 document.querySelector('#vitoria').play()
-
             }
-            
         }, 1000);
     }
-
- 
-    
     
     function misturarCards(array) {
         for (let i = array.length - 1; i > 0; i--) {
@@ -107,13 +101,11 @@
     
     misturarCards(images)
 
-
 </script>
 <audio id="SomFlip1" src="/audio/Flip.mp3" preload="auto"></audio>
 <audio id="SomFlip2" src="/audio/Flip2.mp3" preload="auto"></audio>
 <audio id="SomFlip3" src="/audio/desflipar.mp3" preload="auto"></audio>
 <audio id="vitoria" src="/audio/vitoria.mp3" preload="auto"></audio>
-
 
 <div class="conteudo-jogo">
     <div class="pares">
@@ -121,7 +113,7 @@
         <h1 class="paresinfo">Pares Restantes: {Pares}</h1>
     </div>
     <div class="game-display">
-    
+
       {#each images as {Src,Id} }
     
         <div class="flip-card">
@@ -137,7 +129,7 @@
         {/each}
     </div>
     <div class="TelaVitoria">
-        <h1>Parabéns! Você Venceu</h1>
+        <h1>Vitoria!</h1>
         <p style="font-size: 25pt;">Você completou todas as fases.</p>
         <p style="font-size: 25pt;">Retorne para a página inicial.</p>
         <div class="escolhas">

@@ -23,7 +23,6 @@
     ] 
     let PrimeiroCard
     let SegundoCard
-    let iguais
     let Pares = 6
 
     function flipcards(){
@@ -51,9 +50,9 @@
         
     }
     function VerificarCards(){
-        iguais = PrimeiroCard.dataset.identificacao === SegundoCard.dataset.identificacao
-        if(iguais == true){
-             PrimeiroCard = null
+
+        if(PrimeiroCard.dataset.identificacao === SegundoCard.dataset.identificacao){
+            PrimeiroCard = null
             SegundoCard = null
             Pares --
             VerificarFim()
@@ -133,7 +132,8 @@
         {/each}
     </div>
     <div class="TelaVitoria">
-        <h1>Parabéns! Você Venceu</h1>
+        <h1>Parabéns! Você concluiu está fase.</h1>
+        <p style="font-size: 25pt;">Você pode aumentar a dificuldade ou retornar para a página inicial</p>
         <div class="escolhas">
             <PaginaInicialBotao />
             <Jogar2Botao />

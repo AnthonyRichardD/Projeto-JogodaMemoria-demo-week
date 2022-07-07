@@ -3,7 +3,6 @@
     cursor:default;
 }
 .conteudo-jogo{
-    user-select: none;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -38,7 +37,6 @@
 .game-display{
     display: grid;
     grid-template-columns: repeat(4,auto);
-    border: 2px solid red;
 }
 /* W3Schools*/
 /* https://www.w3schools.com/howto/howto_css_flip_card.asp */
@@ -99,7 +97,7 @@
 }
 .TelaVitoria h1{
     font-size: 40pt;
-    margin-bottom: 100px;
+    margin-bottom: 30px;
 }
 .escolhas{
     display: flex;
@@ -116,7 +114,6 @@
     width: 300px;
     height: 60px;
     margin-bottom: 25px;
-    border-bottom: 2px solid black;
     border-radius: 20px;
     color: black;
     display: flex;
