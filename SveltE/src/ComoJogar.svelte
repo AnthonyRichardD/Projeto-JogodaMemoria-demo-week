@@ -154,7 +154,7 @@
 <div class="FimCont">
     <div class="TelaFim">
         <h1>Você completou o tutorial.</h1>
-        <p>Agora que você já sabe jogar</p>
+        <p>Agora você já sabe jogar.</p>
         <p>clique no botão abaixo para começar.</p>
         <JogarBotao/>
     </div>

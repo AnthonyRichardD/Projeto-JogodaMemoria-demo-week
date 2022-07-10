@@ -129,8 +129,7 @@
         {/each}
     </div>
     <div class="TelaVitoria">
-        <h1>Vitoria!</h1>
-        <p style="font-size: 25pt;">Você completou todas as fases.</p>
+        <h1>Você completou todas as fases</h1>
         <p style="font-size: 25pt;">Retorne para a página inicial.</p>
         <div class="escolhas">
             <PaginaInicialBotao />

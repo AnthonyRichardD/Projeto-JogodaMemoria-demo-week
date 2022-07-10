@@ -7,18 +7,34 @@
         if(!aluno1){
             aluno1 = this
             aluno1.classList.add('flipar')
+            setTimeout(() => {
+                aluno1.classList.remove('flipar')
+                aluno1 = null
+            }, 15000);
         }
         else if(!aluno2){
-            aluno1 = this
-            aluno1.classList.add('flipar')
+            aluno2 = this
+            aluno2.classList.add('flipar')
+            setTimeout(() => {
+                aluno2.classList.remove('flipar')
+                aluno2 = null
+            }, 15000);
         }        
         else if(!aluno3){
-            aluno1 = this
-            aluno1.classList.add('flipar')
+            aluno3 = this
+            aluno3.classList.add('flipar')
+            setTimeout(() => {
+                aluno3.classList.remove('flipar')
+                aluno3 = null
+            }, 15000);
         }        
         else if(!aluno4){
-            aluno1 = this
-            aluno1.classList.add('flipar')
+            aluno4 = this
+            aluno4.classList.add('flipar')
+            setTimeout(() => {
+                aluno4.classList.remove('flipar')
+                aluno4 = null
+            }, 15000);
         }
     }
     let aluno1
@@ -76,7 +92,7 @@
             <div class="alunofrente">
                 <h2 class="social">Social</h2>
                 <div class="info">
-                    ??????????????????????
+                    <img src="/images/git.png" alt="github-logo"><a href="https://github.com/Fabiontj" target="_blank">Fabiontj</a>
                 </div>
                 <din class="nome">
                     <h1>Fabio</h1>
